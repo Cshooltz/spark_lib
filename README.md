@@ -16,7 +16,7 @@ If you're new to Dart, the [lib](lib) directory contains all the code for the pr
 
 Much of Spark Lib contains standalone reusable components that can be simply imported and used as needed. The main parts of the library that require specific setup are the application scaffold and custom window titlebar, which are detailed in the following subsections.
 
-##### Rapid Application Scaffold
+#### Rapid Application Scaffold
 
 The main application scaffold components of Spark Lib reside in the [lib/app](lib/app) and [lib/navigation](lib/navigation) directories. [lib/app](lib/app) contains the `AppSystemManager` widget and `SparkApp` class, which work together to form the root of the Flutter application. For a very fast startup, you may simply create an instance of SparkApp and pass the result of `SparkApp.build()` to Flutter's `runApp()` function.
 
@@ -24,7 +24,7 @@ The main application scaffold components of Spark Lib reside in the [lib/app](li
 
 Once you make the pages for your app, you can make navigation calls to `AppNavigator` instead of `Navigator.of(context)` for global app navigation. To switch to a new page, simply pass a `SparkPage` wrapped widget to `AppNavigator.navigateTo()`.
 
-##### Custom Window Titlebar for Desktop
+#### Custom Window Titlebar for Desktop
 I have also built in code that takes care of the boilerplate associated with adding a custom titlebar and window behavior to desktop applications. The required code is located under [lib/custom_window](lib/custom_window). The file [bitsdojo_boilerplate.dart](lib/custom_window/bitsdojo_boilerplate.dart) contains the `initializeBitsdojo()` function, which wraps the setup needed for the bitsdojo_window package to work and must be called after `runApp()` is called in your application's `main()` function.
 
 The file [window_appbar.dart](lib/custom_window/window_appbar.dart) contains the code to create a modified `AppBar` (via the static `AppBar.build()` function) for use with the `Scaffold` widget in Flutter. My implementation makes a standard Material app bar, but makes the app bar act as the titlebar for the app, meaning it can be dragged to move the window and includes OS standard minimize, maximize, and close buttons. If the app is executed on mobile, the app bar will be a plain Flutter Material `AppBar` with no modifications.
